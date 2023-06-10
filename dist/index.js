@@ -1,12 +1,9 @@
-const linkForm = document.getElementById('link-form');
-
+// Fetching API URL
 const getAPI = async (url) => {
 	const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await res.json();
 
-	console.log();
-	console.log(data.result);
-
+	// Appending Data To Div
 	const link = document.createElement('div');
 	link.innerHTML = `
     				<div class="flex flex-col items-center justify-between w-full py-6 bg-white rounded-lg md:flex-row">
@@ -20,15 +17,25 @@ const getAPI = async (url) => {
 						<button class="p-2 px-8 text-white bg-cyan rounded-lg hover:opacity-70 focus:outline-none">Copy</button>
 					</div>
 				</div>`;
+
 	document.getElementById('output').appendChild(link);
 };
 
-linkForm.addEventListener('submit', (e) => {
+// Form Validation
+const getShortLink = (e) => {
 	e.preventDefault();
+
 	const inputValue = e.target.firstElementChild.value;
+	const err = document.getElementById('err-msg');
+
 	if (inputValue === '') {
-		console.log('Please enter valid url');
-	} else {
-		getAPI(inputValue);
+		err.textContent = 'Please enter valid url';
+		e.target.firstElementChild.classList.add('border-red');
+		return;
 	}
-});
+
+	err.textContent = '';
+	getAPI(inputValue);
+};
+
+document.getElementById('link-form').addEventListener('submit', getShortLink);
