@@ -69,34 +69,46 @@
 			</div>
 		</header>
 		<!-- Shorten Section -->
-		<main class="relative bg-gray-100">
-		<!-- Shorten Container -->
-		<div class="max-w-4xl mx-auto p-6 space-y-6">
-			<!-- Form -->
-			<form
-			id="link-form"
-			class="relative flex flex-col w-full p-10 -mt-20 space-y-4 bg-darkViolet rounded-lg md:flex-row md:space-y-0 md:space-x-3"
-			>
-			<input
-				type="text"
-				class="flex-1 p-3 border-2 rounded-lg placeholder-yellow-500 focus:outline-none"
-				placeholder="Shorten a link here"
-				id="link-input"
-			/>
+		<section id="shorten" class="relative bg-gray-100">
+			<!-- Shorten Container -->
+			<div class="mx-auto max-w-4xl space-y-6 p-6">
+				<!-- Form -->
+				<form
+					id="link-form"
+					class="relative -mt-20 flex w-full flex-col space-y-4 rounded-lg bg-darkViolet p-10 md:flex-row md:space-x-3 md:space-y-0"
+				>
+					<input
+						type="text"
+						class="flex-1 rounded-lg border-2 p-3 placeholder-yellow-500 focus:outline-none"
+						placeholder="Shorten a link here"
+						id="link-input"
+					/>
 
-			<button
-				class="px-10 py-3 text-white bg-cyan rounded-lg hover:bg-cyanLight focus:outline-none md:py-2"
-			>
-				Shorten It!
-			</button>
+					<button class="rounded-lg bg-cyan px-10 py-3 text-white hover:bg-cyanLight focus:outline-none md:py-2">Shorten It!</button>
 
-			<!-- Error Message -->
-			<div
-				id="err-msg"
-				class="absolute left-7 bottom-3 text-red text-sm italic"
-			></div>
-			</form>
-			<div id="output"></div>
-		</main>
+					<!-- Error Message -->
+					<div id="err-msg" class="absolute bottom-3 left-7 text-sm italic text-red"></div>
+				</form>
+				<div id="output" class="space-y-8"></div>
+			</div>
+		</section>
+		<!-- Stats Section -->
+		<section id="stats" class="bg-gray-100 py-24">
+			<div class="container mx-auto px-3">
+				<h2 class="mb-6 text-center text-4xl font-bold">Advanced Statistics</h2>
+				<p class="mx-w-xs md:mx-w-md mx-auto text-center text-gray-400">
+					Track how your links are performing across the web with our advanced statistics dashbord.
+				</p>
+			</div>
+		</section>
+		<!-- Feature Box Section -->
+		<section id="features" class="bg-gray-100 pb-32">
+			<div class="container relative mx-auto flex flex-col items-start px-6 md:flex-row md:space-x-7">
+				<!-- Horizontal Line -->
+				<div class="absolute left-16 top-24 hidden h-3 w-10/12 bg-cyan md:block"></div>
+				<!-- Vertical Line -->
+				<div class=""></div>
+			</div>
+		</section>
 	</body>
 </html>
