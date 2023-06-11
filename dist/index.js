@@ -4,21 +4,37 @@ const getAPI = async (url) => {
 	const data = await res.json();
 
 	// Appending Data To Div
-	const link = document.createElement('div');
-	link.innerHTML = `
-    				<div class="flex flex-col items-center justify-between w-full py-6 bg-white rounded-lg md:flex-row">
-					<p class="font-bold text-center text-veryDarkViolet md:text-left">
-						${data.result.original_link}
-					</p>
-					<div class="flex flex-col items-center justify-end flex-1 space-x-4 space-y-2 md:flex-row md:space-y-0">
-						<div class="font-bold text-cyan">
-							${data.result.short_link}
-						</div>
-						<button class="p-2 px-8 text-white bg-cyan rounded-lg hover:opacity-70 focus:outline-none">Copy</button>
-					</div>
-				</div>`;
+	const linkContainer = document.createElement('div');
+	linkContainer.classList.add('link-container');
 
-	document.getElementById('output').appendChild(link);
+	// Creating Original Link Text
+	const linkText = document.createElement('p');
+	linkText.classList.add('link-text');
+	linkText.appendChild(document.createTextNode(data.result.original_link));
+
+	// Creating Wrapper Div For Short Link & Copy Button
+	const shortLinkWrapper = document.createElement('div');
+	shortLinkWrapper.classList.add('short-link-wrapper');
+
+	// Short Link
+	const shortLink = document.createElement('div');
+	shortLink.classList.add('short-link');
+	shortLink.appendChild(document.createTextNode(data.result.short_link));
+
+	// Copy Button
+	const copyButton = document.createElement('button');
+	copyButton.classList.add('copy-button');
+	copyButton.appendChild(document.createTextNode('Copy'));
+
+	// Appending Short Link Wrapper
+	shortLinkWrapper.appendChild(shortLink);
+	shortLinkWrapper.appendChild(copyButton);
+
+	linkContainer.appendChild(linkText);
+	linkContainer.appendChild(shortLinkWrapper);
+
+	// Appending Output Div
+	document.getElementById('output').appendChild(linkContainer);
 };
 
 // Form Validation

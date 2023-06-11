@@ -3,7 +3,27 @@
 @tailwind utilities;
 
 @layer base {
-    a {
-        transition: all .2s ease-in;
-    }
+	a {
+		transition: all 0.2s ease-in;
+	}
+}
+
+.link-container {
+	@apply flex w-full flex-col items-center justify-between rounded-lg bg-white py-6 md:flex-row;
+}
+
+.link-text {
+	@apply text-center font-bold text-veryDarkViolet md:text-left;
+}
+
+.short-link-wrapper {
+	@apply flex flex-col items-center justify-end space-x-8 space-y-2 md:flex-row md:space-y-0;
+}
+
+.short-link {
+	@apply font-bold text-cyan;
+}
+
+.copy-button {
+	@apply rounded-lg bg-cyan p-2 px-8 text-white hover:opacity-70 focus:outline-none;
 }
