@@ -8,6 +8,12 @@
 	}
 }
 
+.cta {
+    background-image: url(../dist/assets/bg-boost-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .link-container {
 	@apply flex w-full flex-col items-center justify-between space-y-4 rounded-lg bg-white px-4 py-6 md:flex-row md:space-y-0;
 }

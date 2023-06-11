@@ -580,12 +580,12 @@ a {
   left: 50%;
 }
 
-.left-16 {
-  left: 4rem;
+.left-10 {
+  left: 2.5rem;
 }
 
-.left-7 {
-  left: 1.75rem;
+.left-16 {
+  left: 4rem;
 }
 
 .top-24 {
@@ -792,6 +792,10 @@ a {
   padding: 2.5rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -916,6 +920,12 @@ a {
 
 .duration-200 {
   transition-duration: 200ms;
+}
+
+.cta {
+  background-image: url(../dist/assets/bg-boost-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .link-container {
@@ -1062,6 +1072,10 @@ a {
     left: 4rem;
   }
 
+  .md\:left-8 {
+    left: 2rem;
+  }
+
   .md\:mt-16 {
     margin-top: 4rem;
   }
@@ -1117,8 +1131,18 @@ a {
     padding-bottom: 0.5rem;
   }
 
+  .md\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
   .md\:text-left {
     text-align: left;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
