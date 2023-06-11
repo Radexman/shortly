@@ -25,6 +25,17 @@ const getAPI = async (url) => {
 	const copyButton = document.createElement('button');
 	copyButton.classList.add('copy-button');
 	copyButton.appendChild(document.createTextNode('Copy'));
+	copyButton.addEventListener('click', (e) => {
+		const thisButton = e.target;
+		navigator.clipboard.writeText(data.result.short_link);
+		thisButton.classList.add('active');
+		thisButton.textContent = 'Copied!';
+
+		setTimeout(() => {
+			thisButton.classList.remove('active');
+			thisButton.textContent = 'Copy';
+		}, 5000);
+	});
 
 	// Appending Short Link Wrapper
 	shortLinkWrapper.appendChild(shortLink);
@@ -37,21 +48,40 @@ const getAPI = async (url) => {
 	document.getElementById('output').appendChild(linkContainer);
 };
 
+// Validate a URL
+const validURL = (str) => {
+	const pattern = new RegExp(
+		'^(https?:\\/\\/)?' + // protocol
+			'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
+			'((\\d{1,3}\\.){3}\\d{1,3}))' +
+			'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
+			'(\\?[;&a-z\\d%_.~+=-]*)?' +
+			'(\\#[-a-z\\d_]*)?$',
+		'i'
+	);
+	return !!pattern.test(str);
+};
+
 // Form Validation
 const getShortLink = (e) => {
 	e.preventDefault();
 
-	const inputValue = e.target.firstElementChild.value;
+	let inputValue = e.target.firstElementChild.value;
 	const err = document.getElementById('err-msg');
 
 	if (inputValue === '') {
 		err.textContent = 'Please enter valid url';
 		e.target.firstElementChild.classList.add('border-red');
 		return;
+	} else if (!validURL(inputValue)) {
+		err.textContent = 'Please enter valid url';
+		e.target.firstElementChild.classList.add('border-red');
+		return;
 	}
 
-	err.textContent = '';
 	getAPI(inputValue);
+	err.textContent = '';
+	e.target.firstElementChild.value = '';
 };
 
 document.getElementById('link-form').addEventListener('submit', getShortLink);

@@ -9,7 +9,7 @@
 }
 
 .link-container {
-	@apply flex w-full flex-col items-center justify-between rounded-lg bg-white py-6 md:flex-row;
+	@apply flex w-full flex-col items-center justify-between rounded-lg bg-white px-4 py-6 md:flex-row;
 }
 
 .link-text {
@@ -25,5 +25,9 @@
 }
 
 .copy-button {
-	@apply rounded-lg bg-cyan p-2 px-8 text-white hover:opacity-70 focus:outline-none;
+	@apply rounded-lg bg-cyan p-2 px-8 text-white duration-200 hover:opacity-70 focus:outline-none active:bg-green-700;
+}
+
+.active {
+	@apply bg-green-700;
 }
