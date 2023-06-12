@@ -2,11 +2,14 @@
 const menu = document.getElementById('menu');
 const menuBtn = document.getElementById('menu-btn');
 const navLinks = document.querySelectorAll('.nav-link');
+const loadingScreen = document.querySelector('.loading-screen');
 
 // Fetching API URL
 const getAPI = async (url) => {
+	loadingScreen.classList.remove('hidden');
 	const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await res.json();
+	loadingScreen.classList.add('hidden');
 
 	// Appending Data To Div
 	const linkContainer = document.createElement('div');
@@ -33,8 +36,8 @@ const getAPI = async (url) => {
 	copyButton.addEventListener('click', (e) => {
 		const thisButton = e.target;
 		navigator.clipboard.writeText(data.result.short_link);
-		thisButton.classList.add('active');
 		thisButton.textContent = 'Copied!';
+		thisButton.classList.add('active');
 
 		setTimeout(() => {
 			thisButton.classList.remove('active');

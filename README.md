@@ -13,6 +13,5 @@ Tailwind CSS Framework and vanilla JS.
 
 ## **TODO**
 
--   Event delegation for mobile menu nav links.
 -   Odd & Even colors on copy buttons.
 -   Loading screen.

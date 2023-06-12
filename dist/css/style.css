@@ -588,10 +588,6 @@ a {
   left: 4rem;
 }
 
-.top-24 {
-  top: 6rem;
-}
-
 .left-6 {
   left: 1.5rem;
 }
@@ -602,6 +598,10 @@ a {
 
 .top-20 {
   top: 5rem;
+}
+
+.top-24 {
+  top: 6rem;
 }
 
 .z-20 {
@@ -992,7 +992,7 @@ a {
   cursor: pointer;
   width: 24px;
   height: 24px;
-  transition: all .2s;
+  transition: all 0.2s;
   position: relative;
 }
 
@@ -1007,7 +1007,7 @@ a {
   left: 0;
   background: #9c9aa6;
   transform: rotate(0);
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .hamburger-middle {
@@ -1036,7 +1036,7 @@ a {
 }
 
 .ficon:hover {
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
   filter: invert(79%) sepia(61%) saturate(464%) hue-rotate(130deg) brightness(89%) contrast(85%);
 }
 
@@ -1126,14 +1126,22 @@ a {
 
 .copy-button {
   border-radius: 0.5rem;
-  --tw-bg-opacity: 1;
-  background-color: hsl(180 66% 49% / var(--tw-bg-opacity));
   padding: 0.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
   transition-duration: 200ms;
+}
+
+.copy-button:nth-child(odd) {
+  --tw-bg-opacity: 1;
+  background-color: hsl(257 27% 26% / var(--tw-bg-opacity));
+}
+
+.copy-button:nth-child(even) {
+  --tw-bg-opacity: 1;
+  background-color: hsl(180 66% 49% / var(--tw-bg-opacity));
 }
 
 .copy-button:hover {
@@ -1153,6 +1161,78 @@ a {
 .active {
   --tw-bg-opacity: 1;
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+}
+
+/* ===== Loading Screen ===== */
+
+/* Spinner From: https://codepen.io/tbrownvisuals/pen/edGYvx */
+
+.loading-screen {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.show {
+  display: block;
+}
+
+/* Transparent Overlay */
+
+.loading-screen:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8));
+  background: -webkit-radial-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+
+.loading-screen:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading-screen:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  animation: loading-screen 150ms infinite linear;
+  border-radius: 0.5em;
+  box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0,
+		rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0,
+		rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@keyframes loading-screen {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .hover\:bg-cyanLight:hover {
