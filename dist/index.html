@@ -43,9 +43,23 @@
 						<a href="#" type="button">Sign Up</a>
 					</div>
 				</div>
-				<!-- @todo Hamburger Menu -->
+				<!-- Hamburger Button -->
+				<button id="menu-btn" class="hamburger block focus:outline-none lg:hidden">
+					<span class="hamburger-top"></span>
+					<span class="hamburger-middle"></span>
+					<span class="hamburger-bottom"></span>
+				</button>
 			</div>
-			<!-- @todo Mobile Menu -->
+			<!--  Mobile Menu -->
+			<div id="menu" class="absolute left-6 right-6 top-20 z-20 hidden rounded-lg bg-darkViolet p-6">
+				<div class="flex w-full flex-col items-center justify-center space-y-6 rounded-sm font-bold text-white">
+					<a href="#" class="nav-link w-full text-center hover:text-veryDarkViolet">Features</a>
+					<a href="#" class="nav-link w-full text-center hover:text-veryDarkViolet">Pricing</a>
+					<a href="#" class="nav-link w-full text-center hover:text-veryDarkViolet">Resources</a>
+					<a href="#" class="nav-link w-full border-t border-gray-400 pt-6 text-center hover:text-veryDarkViolet">Login</a>
+					<a href="#" class="nav-link w-full rounded-full bg-cyan py-3 text-center hover:opacity-70">Sign Up</a>
+				</div>
+			</div>
 		</nav>
 		<!-- Hero Section -->
 		<header id="hero">

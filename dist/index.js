@@ -1,3 +1,8 @@
+// DOM Elements
+const menu = document.getElementById('menu');
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.querySelectorAll('.nav-link');
+
 // Fetching API URL
 const getAPI = async (url) => {
 	const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
@@ -83,5 +88,18 @@ const getShortLink = (e) => {
 	err.textContent = '';
 	e.target.firstElementChild.value = '';
 };
+
+// Mobile Menu
+menuBtn.addEventListener('click', (e) => {
+	e.currentTarget.classList.toggle('open');
+	menu.classList.toggle('hidden');
+});
+
+navLinks.forEach((link) => {
+	link.addEventListener('click', () => {
+		menuBtn.classList.toggle('open');
+		menu.classList.toggle('hidden');
+	});
+});
 
 document.getElementById('link-form').addEventListener('submit', getShortLink);
