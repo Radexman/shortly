@@ -4,7 +4,7 @@ const menuBtn = document.getElementById('menu-btn');
 const navLinks = document.querySelectorAll('.nav-link');
 const loadingScreen = document.querySelector('.loading-screen');
 
-// Fetching API URL
+// Fetching API URL & Creating Output DOM Element
 const getAPI = async (url) => {
 	// Display Loading Screen
 	loadingScreen.classList.remove('hidden');
@@ -97,7 +97,7 @@ const getShortLink = (e) => {
 	e.target.firstElementChild.value = '';
 };
 
-// Mobile Menu
+// Mobile Menu, Hamburger Button & Nav Links Toggler
 menuBtn.addEventListener('click', (e) => {
 	e.currentTarget.classList.toggle('open');
 	menu.classList.toggle('hidden');

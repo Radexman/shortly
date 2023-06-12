@@ -11,7 +11,16 @@ Tailwind CSS Framework and vanilla JS.
 -   Async JS / Fetch API
 -   Link shortener API
 
-## **TODO**
+## **Project Overview**
 
--   Odd & Even colors on copy buttons.
--   Loading screen.
+This project is a Frontend Mentor challange site, that uses link shortener API.
+I used Tailwind CSS framework and created custom variables for this page.
+This page was build with mobile first approach and it is fully responsive.
+Link shortener form requieres a valid URL, otherways it responds with an error.
+Shortening valid url triggers small loading screen that dissapears after sucessfully fetching
+the API response. Response data is then appended to DOM.
+
+### **Potential Improvements**
+
+-   Local Storage Implementation.
+-   Displaying different background colors on even copy buttons.
