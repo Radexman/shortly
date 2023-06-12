@@ -6,9 +6,14 @@ const loadingScreen = document.querySelector('.loading-screen');
 
 // Fetching API URL
 const getAPI = async (url) => {
+	// Display Loading Screen
 	loadingScreen.classList.remove('hidden');
+
+	// Connect to API
 	const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await res.json();
+
+	// Hide Loading Screen
 	loadingScreen.classList.add('hidden');
 
 	// Appending Data To Div
