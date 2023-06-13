@@ -13,6 +13,14 @@ const getAPI = async (url) => {
 	const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await res.json();
 
+	// Responses
+	const originalLinkRes = data.result.original_link;
+	const shortLinkRes = data.result.short_link;
+
+	// Set Response To Session Storage
+	sessionStorage.setItem('original-link', originalLinkRes);
+	sessionStorage.setItem('short-link', shortLinkRes);
+
 	// Hide Loading Screen
 	loadingScreen.classList.add('hidden');
 
@@ -23,7 +31,7 @@ const getAPI = async (url) => {
 	// Creating Original Link Text
 	const linkText = document.createElement('p');
 	linkText.classList.add('link-text');
-	linkText.appendChild(document.createTextNode(data.result.original_link));
+	linkText.appendChild(document.createTextNode(sessionStorage.getItem('original-link')));
 
 	// Creating Wrapper Div For Short Link & Copy Button
 	const shortLinkWrapper = document.createElement('div');
@@ -32,7 +40,7 @@ const getAPI = async (url) => {
 	// Short Link
 	const shortLink = document.createElement('div');
 	shortLink.classList.add('short-link');
-	shortLink.appendChild(document.createTextNode(data.result.short_link));
+	shortLink.appendChild(document.createTextNode(sessionStorage.getItem('short-link')));
 
 	// Copy Button
 	const copyButton = document.createElement('button');
@@ -40,7 +48,7 @@ const getAPI = async (url) => {
 	copyButton.appendChild(document.createTextNode('Copy'));
 	copyButton.addEventListener('click', (e) => {
 		const thisButton = e.target;
-		navigator.clipboard.writeText(data.result.short_link);
+		navigator.clipboard.writeText(shortLinkRes);
 		thisButton.textContent = 'Copied!';
 		thisButton.classList.add('active');
 
